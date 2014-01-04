@@ -22,6 +22,7 @@ PYDENTICON_FOREGROUND = getattr(settings, "PYDENTICON_FOREGROUND", ( "rgb(45,79,
                                                                      "rgb(141,69,170)" ))
 PYDENTICON_BACKGROUND = getattr(settings, "PYDENTICON_BACKGROUND", "rgb(224,224,224)")
 PYDENTICON_DIGEST = getattr(settings, "PYDENTICON_DIGEST", hashlib.md5)
+PYDENTICON_INVERT = getattr(settings, "PYDENTICON_INVERT", False)
 
 # Validate the settings.
 if not isinstance(PYDENTICON_ROWS, int) or PYDENTICON_ROWS <= 0:
@@ -50,3 +51,6 @@ if not isinstance(PYDENTICON_BACKGROUND, str):
 
 if not isinstance(PYDENTICON_DIGEST, collections.Callable):
     raise ImproperlyConfigured("Setting PYDENTICON_DIGEST must be a callable digest (usually from hashlib module).")
+
+if not isinstance(PYDENTICON_INVERT, bool):
+    raise ImproperlyConfigured("Setting PYDENTICON_INVERT must be a boolean.")

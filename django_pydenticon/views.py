@@ -9,7 +9,7 @@ from django.http import HttpResponseBadRequest
 # Application imports.
 from .settings import PYDENTICON_ROWS, PYDENTICON_COLUMNS, PYDENTICON_WIDTH, PYDENTICON_HEIGHT
 from .settings import PYDENTICON_PADDING, PYDENTICON_FORMAT, PYDENTICON_FOREGROUND, PYDENTICON_BACKGROUND
-from .settings import PYDENTICON_DIGEST
+from .settings import PYDENTICON_DIGEST, PYDENTICON_INVERT
 
 def image(request, data):
     """
@@ -44,6 +44,16 @@ def image(request, data):
         padding = PYDENTICON_PADDING
     except ValueError:
         raise SuspiciousOperation("Identicon padding must consist out of 4 positive integers separated with commas.")
+    if "i" in request.GET:
+        inverted = request.GET.get("i")
+        if inverted.lower() == "true":
+            inverted = True
+        elif inverted.lower() == "false":
+            inverted = False
+        else:
+            raise SuspiciousOperation("Inversion parameter must be a boolean (true/false).")
+    else:
+        inverted = PYDENTICON_INVERT
 
     # Validate the input parameters.
     if not isinstance(width, int) or width <= 0:
@@ -67,7 +77,7 @@ def image(request, data):
                           digest = PYDENTICON_DIGEST)
 
     # Generate the identicion.
-    content = generator.generate(data, width, height, padding=padding, output_format=output_format)
+    content = generator.generate(data, width, height, padding=padding, output_format=output_format, inverted=inverted)
 
     # Create and return the response.
     response = HttpResponse(content, content_type=content_type)
