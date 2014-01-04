@@ -15,5 +15,5 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
 
     # URLs for Django Pydenticon.
-    url(r'^identicon/', include(django_pydenticon.urls)),
+    url(r'^identicon/', include(django_pydenticon.urls.get_patterns())),
 )
