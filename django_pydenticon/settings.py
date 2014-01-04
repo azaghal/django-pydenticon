@@ -1,3 +1,7 @@
+# Standard Python library imports.
+import collections
+import hashlib
+
 # Django imports
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
@@ -17,6 +21,7 @@ PYDENTICON_FOREGROUND = getattr(settings, "PYDENTICON_FOREGROUND", ( "rgb(45,79,
                                                                      "rgb(49,203,115)",
                                                                      "rgb(141,69,170)" ))
 PYDENTICON_BACKGROUND = getattr(settings, "PYDENTICON_BACKGROUND", "rgb(224,224,224)")
+PYDENTICON_DIGEST = getattr(settings, "PYDENTICON_DIGEST", hashlib.md5)
 
 # Validate the settings.
 if not isinstance(PYDENTICON_ROWS, int) or PYDENTICON_ROWS <= 0:
@@ -43,3 +48,5 @@ if not all([isinstance(f, str) for f in PYDENTICON_FOREGROUND]):
 if not isinstance(PYDENTICON_BACKGROUND, str):
     raise ImproperlyConfigured("Setting PYDENTICON_BACKGROUND must be a string representation of colour")
 
+if not isinstance(PYDENTICON_DIGEST, collections.Callable):
+    raise ImproperlyConfigured("Setting PYDENTICON_DIGEST must be a callable digest (usually from hashlib module).")

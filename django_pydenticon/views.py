@@ -9,6 +9,7 @@ from django.http import HttpResponseBadRequest
 # Application imports.
 from .settings import PYDENTICON_ROWS, PYDENTICON_COLUMNS, PYDENTICON_WIDTH, PYDENTICON_HEIGHT
 from .settings import PYDENTICON_PADDING, PYDENTICON_FORMAT, PYDENTICON_FOREGROUND, PYDENTICON_BACKGROUND
+from .settings import PYDENTICON_DIGEST
 
 def image(request, data):
     """
@@ -61,7 +62,9 @@ def image(request, data):
         raise SuspiciousOperation("Unsupported identicon format requested - '%s' % output_format")
 
     # Initialise a generator.
-    generator = Generator(PYDENTICON_ROWS, PYDENTICON_COLUMNS)
+    generator = Generator(PYDENTICON_ROWS, PYDENTICON_COLUMNS,
+                          foreground = PYDENTICON_FOREGROUND, background = PYDENTICON_BACKGROUND,
+                          digest = PYDENTICON_DIGEST)
 
     # Generate the identicion.
     content = generator.generate(data, width, height, padding=padding, output_format=output_format)
