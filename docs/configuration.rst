@@ -7,6 +7,9 @@ A number of configuration options can be set in Django project that affect the
 identicon generation. Each configuration option comes with a default value
 that's used if it's not specified explicitly in project settings.
 
+The application will verify configuration options, and raise an
+``ImproperlyConfigured`` exception in case of a problem.
+
 ``PYDENTICON_ROWS``
 -------------------
 
