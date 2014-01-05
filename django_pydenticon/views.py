@@ -57,7 +57,7 @@ def image(request, data):
 
     # Validate the input parameters.
     if not isinstance(width, int) or width <= 0:
-        raise ImproperlyConfigured("Identicon width must be a positive integer.")
+        raise SuspiciousOperation("Identicon width must be a positive integer.")
     if not isinstance(height, int) or height <= 0:
         raise SuspiciousOperation("Identicon height must be a positive integer.")
     if not all([isinstance(p, int) and p >= 0 for p in padding]) or len(padding) != 4:
