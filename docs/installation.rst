@@ -8,9 +8,11 @@ Django Pydenticon can be installed through one of the following methods:
 Requirements
 ------------
 
-The main external requirement for Django Pydenticon is the `Pydenticon
-<https://github.com/azaghal/pydenticon>`_ library, which is used for generating
-the identicons.
+Django Pydenticon depends on the following Python packages:
+
+* `Django https://www.djangoproject.com/`_ web framework.
+* `Pydenticon <https://github.com/azaghal/pydenticon>`_ library, which is used for generating
+  the identicons.
 
 Using pip
 ---------
