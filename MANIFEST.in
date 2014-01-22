@@ -1,0 +1,8 @@
+recursive-include docs Makefile make.bat *.py *.rst *.png *.ico
+include LICENSE
+include MANIFEST.in
+include README.rst
+include setup.py
+recursive-include django_pydenticon *.py
+prune docs/_build
+exclude tmp/
