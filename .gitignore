@@ -1,3 +1,7 @@
 *.pyc
 *~
 tmp/
+django_pydenticon.egg-info/
+dist/
+docs/_build/
+testproject/db.sqlite3
