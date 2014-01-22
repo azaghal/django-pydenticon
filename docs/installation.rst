@@ -10,7 +10,7 @@ Requirements
 
 Django Pydenticon depends on the following Python packages:
 
-* `Django https://www.djangoproject.com/`_ web framework.
+* `Django <https://www.djangoproject.com/>`_ web framework.
 * `Pydenticon <https://github.com/azaghal/pydenticon>`_ library, which is used for generating
   the identicons.
 
