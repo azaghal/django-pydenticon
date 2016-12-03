@@ -1,6 +1,27 @@
 Release notes
 =============
 
+0.2
+---
+
+Update introduces support for Django 1.8+ and some documentation improvements.
+
+New features:
+
+* `DJPYD-7: Update application for use in Django 1.8, 1.9, and Django 1.10
+  <https://projects.majic.rs/django-pydenticon/issues/DJPYD-7>`_
+
+  Minimum requirement for Django is now 1.8.x. Fixes are compatible with Django
+  1.9.x and 1.10.x as well.
+
+Enhancements:
+
+* `DJPYD-8: Update Pydenticon requirement to version 0.3
+  <https://projects.majic.rs/django-pydenticon/issues/DJPYD-8>`_
+
+  Introduced explicit dependency on Pydenticon 0.3, which also introduces
+  ability to handle transparency in PNGs.
+
 0.1
 ---
 
