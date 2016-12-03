@@ -73,6 +73,13 @@ generating the identicons. Each element of list/tuple should be a string
 conformant to colour specification from the `Pillow
 <http://pillow.readthedocs.org/en/latest/reference/ImageColor.html>`_ library.
 
+In addition to regular RGB, you can also use the RGBA (RGB with alpha channel)
+scheme to introduce partial or complete transparency when specyfing
+colour. Alpha channel value ranges between 0 (full transparency) to 255 (no
+transparency). For example ``rgba(224,224,224,0)`` will result in fully
+transparent background, while ``rgba(224,224,244,128)`` will result in
+approximatelly 50% transparency.
+
 **Default value:** ``("rgb(45,79,255)", "rgb(254,180,44)", "rgb(226,121,234)",
 "rgb(30,179,253)", "rgb(232,77,65)", "rgb(49,203,115)", "rgb(141,69,170)")``
 
@@ -83,6 +90,14 @@ Specifies a (single) background colour that should be used when generating the
 identicons. This should be a string conformant to colour specification from the
 `Pillow <http://pillow.readthedocs.org/en/latest/reference/ImageColor.html>`_
 library. The value should be a string.
+
+In addition to regular RGB, you can also use the RGBA (RGB with alpha channel)
+scheme to introduce partial or complete transparency when specyfing
+colour. Alpha channel value ranges between 0 (full transparency) to 255 (no
+transparency). For example ``rgba(224,224,224,0)`` will result in fully
+transparent foreground, while ``rgba(224,224,244,128)`` will result in
+approximatelly 50% transparency. Different foreground colours can have different
+values for alpha channel.
 
 **Default value:** ``"rgb(224,224,224)"``
 

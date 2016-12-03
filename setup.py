@@ -2,7 +2,7 @@ import os
 from setuptools import setup, find_packages
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
-INSTALL_REQUIREMENTS = ["pydenticon", "django>=1.8.0"]
+INSTALL_REQUIREMENTS = ["pydenticon>=0.3", "django>=1.8.0"]
 TEST_REQUIREMENTS = []
 
 # allow setup.py to be run from any path
