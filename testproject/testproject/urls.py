@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 
 from django.contrib import admin
 admin.autodiscover()
@@ -6,8 +6,7 @@ admin.autodiscover()
 # Django Pydenticon.
 import django_pydenticon.urls
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     # Examples:
     # url(r'^$', 'testproject.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
@@ -16,4 +15,4 @@ urlpatterns = patterns(
 
     # URLs for Django Pydenticon.
     url(r'^identicon/', include(django_pydenticon.urls.get_patterns())),
-)
+]
